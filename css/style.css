@@ -1,0 +1,191 @@
+/* font */
+@font-face {
+    font-family: 'pangolinregular';
+    src: url(../pangolin-regular-webfont.woff) format('woff');
+}
+
+/* style utama */
+body {
+    font: 18px/36px 'pangolinregular', arial, 'sans-serif';
+    background-image: url(../bekgron/awan-pink.png);
+    background-size: cover;
+    margin: 0;
+}
+
+.header {
+    background-image: url(../bekgron/pink.png);
+    background-size: cover;
+    width: 100%;
+    height: 50px;
+    margin-top: -10px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin: 10px;
+    color: #444;
+    line-height: 50px;
+}
+
+.container {
+    width: 700px;
+    background-image: url(../bekgron/serbetPink.jpg);
+    margin: auto;
+    border: 5px solid white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.container .gallery li {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    float: left;
+    border: 5px solid white;
+    border-radius: 10px;
+    margin: 35px 70px 35px 70px;
+}
+
+.clear {
+    clear: both;
+}
+
+/* overlay */
+.overlay {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    z-index: 9999;
+    transition: .8s;
+    -webkit-transition: .8s;
+    -moz-transition: .8s;
+    -ms-transition: .8s;
+    -o-transition: .8s;
+    text-align: center;
+    padding: 100px;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background-image: url(../bekgron/awan.png);
+    background-size: cover;
+    animation: fadeAjah 1s;
+    -webkit-animation: fadeAjah 1s;
+}
+
+.overlay img {
+    max-height: 100%;
+    max-width: 100%;
+    box-shadow: 2px 2px 7px rgba(0,0,0,.5);
+    margin: auto;
+}
+
+.overlay:target img {
+    animation: fadeAjah 1s;
+    -webkit-animation: fadeAjah 1s;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+.overlay:target .close {
+    animation: slideDownFade .5s .5s forwards;
+    -webkit-animation: slideDownFade .5s .5s forwards;
+}
+
+.overlay:target .next {
+    animation: fadeAjah .5s .5s forwards;
+    -webkit-animation: fadeAjah .5s .5s forwards;
+}
+
+.overlay:target .prev {
+    animation: fadeAjah .5s .5s forwards;
+    -webkit-animation: fadeAjah .5s .5s forwards;
+}
+
+/*navigasi*/
+.next, .prev{
+    width: 57px;
+    height: 57px;
+    background-image: url(../navigasi/next.png);
+    position: absolute;
+    text-indent: -9999px;
+    top: 47%;
+    margin-left: 50px;
+    opacity: 0;
+}
+
+.prev {
+    background-image: url(../navigasi/prev.png);
+    margin-left: -105px;
+    top: 47%;
+}
+
+/* footer */
+.footer {
+    background-image: url(../bekgron/pink.png);
+    background-size: cover;
+    width: 100%;
+    height: 30px;
+    margin-top: -10px;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+    margin: 10px;
+    color: #444;
+    line-height: 30px;
+}
+
+/* hp */
+@media screen and (max-width: 767px) {
+    .container .gallery li {
+        width: calc(100% - 64px); /* Lebar galeri sesuai lebar layar dengan margin */
+        margin: 16px; /* Atur margin agar jarak antar gambar lebih kecil */
+    }
+    .overlay {
+        padding: 50px; /* Atur padding overlay agar lebih sesuai dengan tampilan handphone */
+    }
+    .overlay img {
+        width: 100%; /* Lebar gambar sesuai dengan lebar layar */
+        height: auto; /* Atur tinggi agar proporsional */
+        display: flex; /* Gunakan flexbox untuk overlay */
+        margin: auto; /* Menengahkan gambar */
+        align-items: center; /* Menengahkan gambar vertikal */
+        justify-content: center; /* Menengahkan gambar horizontal */
+    }
+    .overlay .close,
+    .overlay .next,
+    .overlay .prev {
+        display: none; /* Sembunyikan tombol navigasi pada tampilan handphone */
+    }
+}
+
+/*animasi*/
+@keyframes fadeAjah {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
